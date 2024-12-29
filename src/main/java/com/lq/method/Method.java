@@ -7,6 +7,7 @@ package com.lq.method;
  * @Description: TODO
  */
 public class Method {
+
     public int add(int a, int b) {
         return a + b;
     }
@@ -21,6 +22,17 @@ public class Method {
             sum += i;
         }
         return sum;
+    }
+
+    public Method() {
+    }
+
+    {
+        System.out.println("构造方法体");
+    }
+
+    static {
+        System.out.println("静态方法体");
     }
 
 }
