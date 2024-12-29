@@ -75,5 +75,6 @@ public class JDK8Date {
         log.info("{}", ChronoUnit.HOURS.between(localDateTime1, localDateTime2));
         log.info("{}", ChronoUnit.MINUTES.between(localDateTime1, localDateTime2));
         log.info("{}", ChronoUnit.SECONDS.between(localDateTime1, localDateTime2));
+
     }
 }

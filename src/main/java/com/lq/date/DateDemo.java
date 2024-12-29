@@ -17,6 +17,8 @@ public class DateDemo {
         Date date1 = new Date();
         Date date2 = new Date(0L);
 
+//        new Date();
+
         System.out.println("date1:" + date1);
         System.out.println("date2:" + date2);
 
