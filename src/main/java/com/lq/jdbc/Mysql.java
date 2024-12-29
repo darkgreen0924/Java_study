@@ -1,4 +1,4 @@
-package com.lq.mysql;
+package com.lq.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
