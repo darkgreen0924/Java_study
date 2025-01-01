@@ -1,9 +1,10 @@
 package com.lq.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import com.lq.jdbc.dto.A;
+
+import java.sql.*;
+
 
 /**
  * Mysql
@@ -13,19 +14,36 @@ import java.sql.SQLException;
  */
 
 public class Mysql {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db01?useSSL=false" +
                 "&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "123456");
 
-        PreparedStatement preparedStatement = connection.prepareStatement("create table if not exists table02(" +
+        // 创建表
+        PreparedStatement preparedStatement1 = connection.prepareStatement("create table if not exists table02(" +
                 "id int ," +
                 "name varchar(20)" +
                 ");");
 
-        boolean execute = preparedStatement.execute();
+        // 搜索表
+        PreparedStatement preparedStatement2 = connection.prepareStatement("select * from table01;");
+        ResultSet resultSet = preparedStatement2.executeQuery();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            A a = new A(id, name);
+            System.out.println(a);
+        }
 
+        // 插入表
+        PreparedStatement preparedStatement3 = connection.prepareStatement("insert into table01 values(?,?)");
+        preparedStatement3.setInt(1, 3);
+        preparedStatement3.setString(2, "cc");
+
+        // 删除
+        PreparedStatement preparedStatement4 = connection.prepareStatement("delete from table01 where id = ?");
+        preparedStatement4.setInt(1, 3);
         connection.close();
     }
 }
