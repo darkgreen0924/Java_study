@@ -15,11 +15,9 @@ import java.sql.*;
 
 public class Mysql {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
+        // Class.forName("com.mysql.cj.jdbc.Driver");DriverManager 已经可以自动加载 详情请看ensureDriversInitialized方法
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db01?useSSL=false" +
                 "&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "123456");
-
         // 创建表
         PreparedStatement preparedStatement1 = connection.prepareStatement("create table if not exists table02(" +
                 "id int ," +
