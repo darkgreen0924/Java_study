@@ -9,6 +9,7 @@ package com.lq.annotation;
 
 @ImportantClass
 public class Dog implements Animal {
+    @ImportantString
     private String name;
 
     public Dog(String name) {
@@ -16,6 +17,7 @@ public class Dog implements Animal {
     }
 
     @Override
+    @ImportantMethod(times = 3)
     public void crew() {
         System.out.println("wang wang");
     }

@@ -1,17 +1,38 @@
 package com.lq.annotation;
 
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 /**
  * @Author: Grace
  * @Date: 2025/2/23 14:18
  * @Description: TODO
  */
 public class AnnotationDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         Cat cat = new Cat("cat");
         Dog dog = new Dog("dog");
         importClassPrint(cat);
         importClassPrint(dog);
+
+        Method[] declaredMethods = dog.getClass().getDeclaredMethods();
+        for (Method declaredMethod : declaredMethods) {
+            if (declaredMethod.isAnnotationPresent(ImportantMethod.class)) {
+                int times = declaredMethod.getAnnotation(ImportantMethod.class).times();
+                for (int i = 0; i < times; i++) {
+                    Object invoke = declaredMethod.invoke(dog, null);
+                }
+            }
+        }
+
+        Field[] declaredFields = dog.getClass().getDeclaredFields();
+        for (Field declaredField : declaredFields) {
+            if (declaredField.isAnnotationPresent(ImportantString.class)) {
+                System.out.println(declaredField.getName());
+            }
+        }
     }
 
     public static void importClassPrint(Animal animal) {
