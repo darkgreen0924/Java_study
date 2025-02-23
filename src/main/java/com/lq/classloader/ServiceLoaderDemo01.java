@@ -13,7 +13,6 @@ public class ServiceLoaderDemo01 {
     public static void main(String[] args) {
         ServiceLoader<InterfaceDemo01> load = ServiceLoader.load(InterfaceDemo01.class);
         for (InterfaceDemo01 interfaceDemo01 : load) {
-
         }
     }
 }
