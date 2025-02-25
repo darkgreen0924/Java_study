@@ -1,5 +1,6 @@
 package com.lq.annotation;
 
+@FunctionalInterface
 public interface Animal {
-    public void crew();
+    void crew();
 }

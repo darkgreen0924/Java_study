@@ -1,6 +1,8 @@
 package com.lq.annotation;
 
 
+import com.lq.cls.Person;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -33,6 +35,9 @@ public class AnnotationDemo {
                 System.out.println(declaredField.getName());
             }
         }
+        @SuppressWarnings("unused")
+        Person p = new Person();
+
     }
 
     public static void importClassPrint(Animal animal) {
