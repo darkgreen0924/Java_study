@@ -9,7 +9,6 @@ import java.io.Serializable;
  * @Description: TODO
  */
 public class MyRuntimeException extends RuntimeException implements Serializable {
-    @java.io.Serial
     private static final long serialVersionUID = 1L;
 
     public MyRuntimeException() {
