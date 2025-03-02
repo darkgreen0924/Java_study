@@ -8,6 +8,7 @@ import java.io.Serializable;
  * @Date: 2025/2/24 19:52
  * @Description: TODO
  */
+aaa
 public class MyRuntimeException extends RuntimeException implements Serializable {
     @java.io.Serial
     private static final long serialVersionUID = 1L;
